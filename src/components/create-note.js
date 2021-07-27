@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Button from "./button";
-import plus from "../resources/plus.svg"
+import plus from "../resources/plus.png"
 const Wrapper = styled.div`
 max-width: 1104px;
 margin: 0 auto;`
