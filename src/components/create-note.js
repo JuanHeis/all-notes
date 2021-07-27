@@ -1,6 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
+import Button from "./button";
+import plus from "../resources/plus.svg"
+const Wrapper = styled.div`
+max-width: 1104px;
+margin: 0 auto;`
+const TextArea = styled.textarea`
+resize: none;
+border: none;
+background-color: #E2DAEB;
+`;
 const Editor = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -9,6 +19,12 @@ const Editor = styled.div`
     > * {
         padding: 1rem;
     }
+`;
+const Header = styled.header`
+align-items: center;
+height: 70px;
+display: flex;
+justify-content: space-between;
 `;
 class CreateNote extends React.Component {
     constructor() {
@@ -81,18 +97,28 @@ class CreateNote extends React.Component {
 
         return textoSalida;
     }
+    handleSalida = () => {
+        const textoOriginal = document.querySelector("textarea").value;
+        console.log(textoOriginal)
+    }
     render() {
         return (
             <React.Fragment>
-                <Editor>
-                    <textarea onChange={this.handleClick}></textarea>
-                    <div
-                        dangerouslySetInnerHTML={{
-                            __html: this.state.textoParseado,
-                        }}
-                        className="salida"
-                    ></div>
-                </Editor>
+                <Wrapper>
+                    <Header>
+                        <div>Logo</div>
+                        <Button img={plus} handleClick={this.handleSalida}></Button>
+                    </Header>
+                    <Editor>
+                        <TextArea onChange={this.handleClick}></TextArea>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: this.state.textoParseado,
+                            }}
+                            className="salida"
+                        ></div>
+                    </Editor>
+                </Wrapper>
             </React.Fragment>
         );
     }
