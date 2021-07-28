@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import Button from "./button";
-import plus from "../resources/plus.png"
+import ButtonPlus from "./button";
+import plus from "../resources/plus.svg"
+import ButtonSecondary from "./button-secondary";
 const Wrapper = styled.div`
 max-width: 1104px;
 margin: 0 auto;`
@@ -14,7 +15,7 @@ background-color: #E2DAEB;
 const Editor = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    block-size: 100vh;
+    block-size: 80vh;
     gap: 2rem;
     > * {
         padding: 1rem;
@@ -26,6 +27,15 @@ height: 70px;
 display: flex;
 justify-content: space-between;
 `;
+
+const Menu = styled.div`
+align-items: center;
+height: 72px;
+display: flex;
+justify-content: space-between;
+`;
+
+
 class CreateNote extends React.Component {
     constructor() {
         super();
@@ -107,8 +117,11 @@ class CreateNote extends React.Component {
                 <Wrapper>
                     <Header>
                         <div>Logo</div>
-                        <Button img={plus} handleClick={this.handleSalida}></Button>
+                        <ButtonPlus img={plus} handleClick={this.handleSalida}></ButtonPlus>
                     </Header>
+                    <Menu>
+                        <ButtonSecondary></ButtonSecondary>
+                    </Menu>
                     <Editor>
                         <TextArea onChange={this.handleClick}></TextArea>
                         <div

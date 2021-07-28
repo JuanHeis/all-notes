@@ -15,17 +15,17 @@ const ButtonCustom = styled.button`
         display: inline-block;
         height: 24px;
         width: 24px;
-        background-image: url("${(props) => props.img}");
+        background-image: url("${(props) => props.img ? props.img : ""}");
         background-repeat: no-repeat;
         background-position: center;
     }
 `;
 
-function Button(props) {
+function ButtonPlus(props) {
     return (
         <ButtonCustom img={props.img} onClick={props.handleClick}>
             Add Note
         </ButtonCustom>
     );
 }
-export default Button;
+export default ButtonPlus;
