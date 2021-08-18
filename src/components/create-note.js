@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import ButtonPlus from "./button";
+import ButtonSecondary from "./button-black";
 import plus from "../resources/plus.svg"
-import ButtonSecondary from "./button-secondary";
+import DropDown from "./dropdown";
 const Wrapper = styled.div`
 max-width: 1104px;
 margin: 0 auto;`
@@ -121,6 +122,7 @@ class CreateNote extends React.Component {
                     </Header>
                     <Menu>
                         <ButtonSecondary></ButtonSecondary>
+                        <DropDown></DropDown>
                     </Menu>
                     <Editor>
                         <TextArea onChange={this.handleClick}></TextArea>
